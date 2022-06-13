@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600;700&display=swap');
+.header {
+  width: 60%;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.header--title { 
+  margin: 20px;
+  font-weight: 700; 
+  color: #222222;
+  font-size: 2rem;
+  line-height: 1.8rem;
+}
+
+.header--subtitle {
+  margin: 10px; 
+  font-weight: 600; 
+  color: #696969;
+  font-size: 0.8rem;
+}
