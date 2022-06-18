@@ -1,0 +1,61 @@
+.form * {
+  padding: 5px;
+}
+
+.form--section {
+  display: flex;
+  flex-direction: column;
+}
+
+.form--title {
+  font-variant: small-caps;
+  text-align: center;
+}
+
+
+.form--radioButton {
+  float: left;
+  margin: 0 5px 0 0;
+  position: relative;
+}
+.form--radioButton > .form--title, 
+.form--radioButton > .form--input {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.form--radioButton > .form--input[type="radio"] {
+  opacity: 0.011;
+  z-index: 100;
+}
+.form--radioButton > .form--input[type="radio"]:checked + .form--title {
+  background-color: blue;
+}
+.form--radioButton > .form--title {
+  cursor: pointer;
+  z-index: 90;
+  line-height: 1.8em;
+}
+
+
+.form--section {
+  margin: 10px 0;
+  border-bottom: 1px solid black;
+}
+
+.form--radioButton {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 30%;
+}
+
+.form--radioButton :first-child {
+  margin-left: auto;
+}
+
+.form--radioButton :last-child {
+  margin-right: auto;
+}

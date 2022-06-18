@@ -2,6 +2,7 @@ import './Home.css';
 import Top from '../components/Top';
 import apiKey from '../apiKey';
 import Table from '../components/Table';
+import Form from '../components/Form';
 
 import placeholderData from '../placeholderData.json';
 
@@ -24,7 +25,7 @@ function Error() {
   return (
     <article className="homePage">
       <Top title={placeholderData.address} subtitle={placeholderData.days.length + " dagar tillbaka"} />
-
+      <Form />
       <Table hour={chosenHour} />
     </article>
   );
