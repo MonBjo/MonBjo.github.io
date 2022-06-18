@@ -2,24 +2,34 @@
   padding: 5px;
 }
 
-.form--section {
+.form__section {
   display: flex;
   flex-direction: column;
 }
 
-.form--title {
+.form__title {
   font-variant: small-caps;
   text-align: center;
 }
 
 
-.form--radioButton {
-  float: left;
-  margin: 0 5px 0 0;
-  position: relative;
+.form__radioButtonWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
-.form--radioButton > .form--title, 
-.form--radioButton > .form--input {
+
+.form__radioButton {
+  float: left;
+  margin: 0;
+  position: relative;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 40%;
+}
+.form__radioButton > .form__title, 
+.form__radioButton > .form__input {
   display: block;
   position: absolute;
   top: 0;
@@ -27,35 +37,21 @@
   right: 0;
   bottom: 0;
 }
-.form--radioButton > .form--input[type="radio"] {
+.form__radioButton > .form__input[type="radio"] {
   opacity: 0.011;
   z-index: 100;
 }
-.form--radioButton > .form--input[type="radio"]:checked + .form--title {
+.form__radioButton > .form__input[type="radio"]:checked + .form__title {
   background-color: blue;
 }
-.form--radioButton > .form--title {
+.form__radioButton > .form__title {
   cursor: pointer;
   z-index: 90;
   line-height: 1.8em;
 }
 
 
-.form--section {
+.form__section {
   margin: 10px 0;
   border-bottom: 1px solid black;
-}
-
-.form--radioButton {
-  border: 1px solid black;
-  border-radius: 10px;
-  width: 30%;
-}
-
-.form--radioButton :first-child {
-  margin-left: auto;
-}
-
-.form--radioButton :last-child {
-  margin-right: auto;
 }
