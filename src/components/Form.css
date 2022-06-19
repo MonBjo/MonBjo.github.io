@@ -13,7 +13,7 @@
 }
 
 
-.form__radioButtonWrapper {
+.form__radioButtonsWrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -38,7 +38,7 @@
   bottom: 0;
 }
 .form__radioButton > .form__input[type="radio"] {
-  opacity: 0.011;
+  opacity: 0.5;
   z-index: 100;
 }
 .form__radioButton > .form__input[type="radio"]:checked + .form__title {
