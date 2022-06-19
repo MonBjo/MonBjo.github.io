@@ -2,6 +2,7 @@ import placeholderData from '../placeholderData.json';
 import './Table.css';
 
 function Table(props) {
+  console.log(placeholderData);
   const { hour } = props;
   const displayData = placeholderData.days.map((day, key) => {
     return (
