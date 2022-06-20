@@ -6,29 +6,28 @@ import Form from '../components/Form';
 
 import placeholderData from '../placeholderData.json';
 
-function Error() {
+function Home(props) {
+  const {location, setLocation, timespan, setTimespan, tempTime, setTempTime, unit, setUnit} = props;
 
   const baseURL = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
-  let location = "Arvika";
-  let timePeriod = "last7days"; // can also be "last30days" and "yeartodate"
-  let unit = "metric"; // can also be us to recive farenheit insted of celcius
+  // let location = "Arvika";
+  // let timePeriod = "last7days"; // (timespan) can also be "last30days" and "yeartodate"
+  // let unit = "metric"; // can also be us to recive farenheit insted of celcius
   const include = "&include=days%2Chours"
 
   async function getWeather() {
-    const response = await fetch(`${baseURL}${location}/${timePeriod}?unitGroup=${unit}${include}&key=${apiKey}&contentType=json`);
+    const response = await fetch(`${baseURL}${location}/${timespan}?unitGroup=${unit}${include}&key=${apiKey}&contentType=json`);
     const data = await response.json();
     return data;
   }
 
-  const chosenHour = 12;
-
   return (
     <article className="homePage">
       <Top title={placeholderData.address} subtitle={placeholderData.days.length + " dagar tillbaka"} />
-      <Form />
-      <Table hour={chosenHour} />
+      <Form setLocation={setLocation} setTimespan={setTimespan} setTempTime={setTempTime} setUnit={setUnit} />
+      <Table hour={tempTime} />
     </article>
   );
 }
 
-export default Error;
+export default Home;
