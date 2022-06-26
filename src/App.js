@@ -5,8 +5,8 @@ import Home from './views/Home';
 import Error from './views/Error';
 
 function App() {
-  const [location, setLocation] = useState("");
-  const [timespan, setTimespan] = useState("");
+  const [location, setLocation] = useState("Title");
+  const [timespan, setTimespan] = useState("Subtitle");
   const [tempTime, setTempTime] = useState("");
   const [unit, setUnit] = useState("");
 
