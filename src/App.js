@@ -2,6 +2,7 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import Home from './views/Home';
+import Search from './views/Search';
 import Error from './views/Error';
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
   return (
     <div className="App">
        <Routes>
-        <Route path="/" element={ <Home location={location} setLocation={setLocation} timespan={timespan} setTimespan={setTimespan} tempTime={tempTime} setTempTime={setTempTime} unit={unit} setUnit={setUnit} /> } />
+        <Route path="/" element={ <Home/> } />
+        <Route path="/search" element={ <Search location={location} setLocation={setLocation} timespan={timespan} setTimespan={setTimespan} tempTime={tempTime} setTempTime={setTempTime} unit={unit} setUnit={setUnit} /> } />
         <Route path="/*" element={ <Error/> } />
       </Routes>
     </div>

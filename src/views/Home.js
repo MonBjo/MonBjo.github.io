@@ -1,29 +1,34 @@
 import './Home.css';
+import { useNavigate } from 'react-router-dom';
 import Top from '../components/Top';
-import apiKey from '../apiKey';
-import Table from '../components/Table';
-import Form from '../components/Form';
+
 function Home(props) {
-  const {location, setLocation, timespan, setTimespan, tempTime, setTempTime, unit, setUnit} = props;
+  const {location, timespan} = props;
+  const navigate = useNavigate();
 
-  const baseURL = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
-  const include = "&include=days%2Chours"
+  function navSearch() {
+    navigate('/Search');
+  }
+  function navHistory() {
+    navigate('/History');
+  }
 
-  const weatherData = async function getWeather() {
-    const response = await fetch(`${baseURL}${location}/${timespan}?unitGroup=${unit}${include}&key=${apiKey}&contentType=json`);
-    console.log("response: ", response);
-    const data = await response.json();
-    console.log("url: ", `${baseURL}${location}/${timespan}?unitGroup=${unit}${include}&key=${apiKey}&contentType=json`);
-    console.log("data: ", data);
-    localStorage.setItem(data.address + data.days.at(0).datetime, data);
-    return data;
+  function displayTop() {
+    if(location === undefined || timespan === undefined) {
+      return ( <Top title="Hi" subtitle="Hello there!" /> );
+    }
+    else {
+      return ( <Top title={location} subtitle={timespan} /> );
+    }
   }
 
   return (
     <article className="homePage">
-      <Top title={location} subtitle={timespan} />
-      <Form setLocation={setLocation} setTimespan={setTimespan} setTempTime={setTempTime} setUnit={setUnit} weatherData={weatherData} />
-      <Table hour={tempTime} weatherData={weatherData} />
+      { displayTop() }
+      <nav className="homePage__nav">
+        <button className="homePage__button" onClick={ navSearch } >Make a search</button>
+        <button className="homePage__button" onClick={ navHistory } >See saved searches</button>
+      </nav>
     </article>
   );
 }
