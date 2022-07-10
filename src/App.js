@@ -6,8 +6,8 @@ import Search from './views/Search';
 import Error from './views/Error';
 
 function App() {
-  const [location, setLocation] = useState("Title");
-  const [timespan, setTimespan] = useState("Subtitle");
+  const [location, setLocation] = useState("Temperaturfilt guide");
+  const [timespan, setTimespan] = useState("Är du också trött på att missa dagar ibland?");
   const [tempTime, setTempTime] = useState("");
   const [unit, setUnit] = useState("");
 
