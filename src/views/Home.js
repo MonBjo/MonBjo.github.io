@@ -1,6 +1,6 @@
 import './Home.css';
-import { useNavigate } from 'react-router-dom';
 import Top from '../components/Top';
+import { useNavigate } from 'react-router-dom';
 
 function Home(props) {
   const {location, timespan} = props;
@@ -13,22 +13,21 @@ function Home(props) {
     navigate('/History');
   }
 
-  function displayTop() {
-    if(location === undefined || timespan === undefined) {
-      return ( <Top title="Hi" subtitle="Hello there!" /> );
-    }
-    else {
-      return ( <Top title={location} subtitle={timespan} /> );
-    }
-  }
-
   return (
     <article className="homePage">
-      { displayTop() }
+      <Top title={location} subtitle={timespan} />
+
       <nav className="homePage__nav">
-        <button className="homePage__button" onClick={ navSearch } >Make a search</button>
-        <button className="homePage__button" onClick={ navHistory } >See saved searches</button>
+        <button className="homePage__button button--style" onClick={ navSearch } >Gör en sökning</button>
+        <button className="homePage__button button--style" onClick={ navHistory } >Se sparade sökningar</button>
       </nav>
+      
+      <article className="homePage__info">
+        <h3>Hejsan!</h3>
+        <p>En temperaturfilt är en filt som skapas genom att man gör ett varv eller en ruta varje dag under ett helt år. Varvet eller rutans färg bestäms för varje garnsort utifrån dagens utomhustemperatur. </p>
+        <p>Den färdiga filten som vanligtvis sträcker sig över ett helt år visar hur temperaturen fördelat sig över året.</p>
+        <p>Jag som har skapat denna sidan heter Monica och läser till frontend utvecklare, detta är mitt sommarprojekt, 2022. Enjoy!</p>
+      </article>
     </article>
   );
 }

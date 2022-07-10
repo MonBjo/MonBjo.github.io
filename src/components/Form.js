@@ -82,7 +82,7 @@ function Form(props) {
           {displayData}
         </select>
       </section>
-      <button onClick={submitForm}>Visa temperaturer!</button>
+      <button className="button--style" onClick={submitForm}>Visa temperaturer!</button>
     </form>
   );
 }
