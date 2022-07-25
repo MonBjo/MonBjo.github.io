@@ -1,8 +1,11 @@
 import './Form.css';
 import placeholderData from '../placeholderData.json';
+import { useDispatch } from 'react-redux';
+import { saveWeatherData, saveToLocalstorage } from '../actions/weatherAction';
 
 function Form(props) {
   const { setLocation, setTimespan, setTempTime, setUnit, weatherData } = props;
+  const dispatch = useDispatch();
 
   function getLocation(event) { 
     setLocation(event.target.value);
@@ -31,9 +34,11 @@ function Form(props) {
     )
   });
 
-  function submitForm(event) {
+  async function submitForm(event) {
     event.preventDefault();
-    weatherData();
+    // console.log("form: ", await weatherData());
+    dispatch(saveWeatherData(placeholderData));
+    dispatch(saveToLocalstorage(JSON.stringify(placeholderData)));
   }
 
 

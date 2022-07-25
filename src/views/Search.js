@@ -1,9 +1,11 @@
 import './Search.css';
 import Top from '../components/Top';
 import apiKey from '../apiKey';
-import Table from '../components/Table';
 import Form from '../components/Form';
+
 import { useNavigate } from 'react-router-dom';
+// import { dispatch } from 'react-redux';
+// import { saveWeatherData } from '../actions/weatherAction';
 
 function Search(props) {
   const {location, setLocation, timespan, setTimespan, tempTime, setTempTime, unit, setUnit} = props;
@@ -16,9 +18,14 @@ function Search(props) {
     const response = await fetch(`${baseURL}${location}/${timespan}?unitGroup=${unit}${include}&key=${apiKey}&contentType=json`);
     console.log("response: ", response);
     const data = await response.json();
+    
+    // debug data \\
     console.log("url: ", `${baseURL}${location}/${timespan}?unitGroup=${unit}${include}&key=${apiKey}&contentType=json`);
     console.log("data: ", data);
-    localStorage.setItem(data.address + data.days.at(0).datetime, data);
+    // localStorage.setItem(data.address + data.days.at(0).datetime, data);
+    
+    // dispatch(saveWeatherData());
+
     return data;
   }
 
@@ -30,7 +37,6 @@ function Search(props) {
       <Top title={location} subtitle={timespan} />
       <button className="searchPage__button button--style" onClick={navHome}> Tillbaka </button>
       <Form setLocation={setLocation} setTimespan={setTimespan} setTempTime={setTempTime} setUnit={setUnit} weatherData={weatherData} />
-      <Table hour={tempTime} weatherData={weatherData} />
     </article>
   );
 }

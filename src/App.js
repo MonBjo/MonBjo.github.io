@@ -1,9 +1,10 @@
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
 import Home from './views/Home';
 import Search from './views/Search';
 import Error from './views/Error';
+
+import { Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 
 function App() {
   const [location, setLocation] = useState("Temperaturfilt guide");
@@ -14,7 +15,7 @@ function App() {
   return (
     <div className="App">
        <Routes>
-        <Route path="/" element={ <Home/> } />
+        <Route path="/" element={ <Home location={location} timespan={timespan} /> } />
         <Route path="/search" element={ <Search location={location} setLocation={setLocation} timespan={timespan} setTimespan={setTimespan} tempTime={tempTime} setTempTime={setTempTime} unit={unit} setUnit={setUnit} /> } />
         <Route path="/*" element={ <Error/> } />
       </Routes>
